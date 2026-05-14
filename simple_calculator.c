@@ -9,8 +9,12 @@ int main(){
     printf("welcome to simple calculator\n");
     while(1){
         print_menu();
-      printf("Enter your choice: "); 
-        scanf("%d",&choose);
+        printf("Enter your choice: "); 
+        if(scanf("%d",&choose)!=1){
+            while(getchar()!='\n');
+            fprintf(stderr,"Invalid input.Please try again.\n");
+            continue;
+        }
         if(choose==7){
             break;
         }
@@ -18,10 +22,18 @@ int main(){
             fprintf(stderr,"Invalid menu choice.Please try again.\n");
             continue;
         }
-printf("\nEnter num1 numbers: ");
-        scanf("%lf",&num1);
+        printf("\nEnter num1 numbers: ");
+        if(scanf("%lf",&num1)!=1){
+            while(getchar()!='\n');
+            fprintf(stderr,"Invalid Input. Please try again.\n");
+            continue;
+        }
         printf("\nEnter num2 numbers: ");
-        scanf("%lf",&num2);
+        if(scanf("%lf",&num2)!=1){
+            while(getchar()!='\n');
+            fprintf(stderr,"invalid Input.Please try again\n");
+            continue;
+        }
         switch(choose){
             case 1:
             result=num1+num2;
